@@ -1,5 +1,3 @@
-# app.py
-
 from flask import Flask, render_template
 import folium
 import os
@@ -35,7 +33,6 @@ def home():
             popup=folium.Popup(f"<strong>{race_name}</strong><br>{description}", max_width=300)
         ).add_to(m)
 
-    # Exemplo de marcador (adicione os outros conforme sua lógica):
     add_race_marker(10, 0, "static/icons/humans.png", "Humans", "Raça com grande adaptabilidade.")
 
     return render_template("index.html", map_html=m._repr_html_())
@@ -43,4 +40,3 @@ def home():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
-# Conteúdo simulado para app.py

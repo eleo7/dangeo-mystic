@@ -1,1 +1,2 @@
-# Conteúdo simulado para start.sh
+#!/bin/bash
+gunicorn app:app

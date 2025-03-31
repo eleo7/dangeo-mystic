@@ -1,42 +1,17 @@
+
 from flask import Flask, render_template
-import folium
+from auth import auth_bp
 import os
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
-@app.route('/')
-def home():
-    m = folium.Map(
-        location=[0, 0],
-        zoom_start=2,
-        tiles=None
-    )
+# Registrar o blueprint de autenticação
+app.register_blueprint(auth_bp)
 
-    folium.raster_layers.ImageOverlay(
-        name='Dangeo Mystic',
-        image='static/background.jpg',
-        bounds=[[-90, -180], [90, 180]],
-        opacity=1,
-        interactive=True,
-        cross_origin=False
-    ).add_to(m)
+@app.route("/")
+def index():
+    return render_template("index.html")
 
-    def add_race_marker(lat, lon, icon_path, race_name, description):
-        icon = folium.CustomIcon(
-            icon_image=icon_path,
-            icon_size=(40, 40),
-            icon_anchor=(20, 20)
-        )
-        folium.Marker(
-            location=[lat, lon],
-            icon=icon,
-            popup=folium.Popup(f"<strong>{race_name}</strong><br>{description}", max_width=300)
-        ).add_to(m)
-
-    add_race_marker(10, 0, "static/icons/humans.png", "Humans", "Raça com grande adaptabilidade.")
-
-    return render_template("index.html", map_html=m._repr_html_())
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+if __name__ == "__main__":
+    app.run(debug=True)

@@ -1,8 +1,37 @@
-
-<html>
-<head><title>Dangeo Mystic</title></head>
-<body style="background:#1b1b1b;color:white;font-family:sans-serif;">
-    <h1>🌌 Mapa Interativo - Dangeo Mystic</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dangeo Mystic</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #0d0d0d;
+            color: #f8f8f2;
+            font-family: 'Georgia', serif;
+        }
+        h1 {
+            text-align: center;
+            color: gold;
+            font-size: 3em;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px #000;
+        }
+        #map {
+            height: 90vh;
+            width: 95%;
+            margin: auto;
+            border: 6px solid #5c4428;
+            box-shadow: 0 0 30px #000;
+        }
+        .leaflet-marker-icon:hover {
+            transform: scale(1.3);
+            filter: drop-shadow(0 0 5px gold);
+        }
+    </style>
+</head>
+<body>
+    <h1>🧭 Mapa de <span style="color:#cfa">Dangeo Mystic</span></h1>
     <div id="map">{{ map_html|safe }}</div>
 </body>
 </html>

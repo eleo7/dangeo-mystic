@@ -1,12 +1,40 @@
-
-
 body {
-    background-image: url("/static/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
     margin: 0;
     padding: 0;
     font-family: 'Georgia', serif;
+    background: url("background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid gold;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #c4ffbe;
+    margin: 0;
+}
+
+header h1 span {
+    color: gold;
+    font-weight: bold;
+}
+
+header img {
+    width: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.map-container {
+    margin: 20px;
+    padding: 10px;
+    border: 3px solid #d4af37;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
 }
